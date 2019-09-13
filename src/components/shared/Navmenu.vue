@@ -1,13 +1,16 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" app fixed clipped class="grey lighten-4">
-    </v-navigation-drawer>
-    <v-app-bar app fixed clipped-left>
-      <v-app-bar-nav-icon @click="drawer = !drawer" />
+    <v-app-bar color="#C4C4C4" app fixed clipped-left>
       <v-toolbar-title @click="$router.push({ path: '/' })">
-        Boilerplate
+        <v-img
+          :src="require('../../assets/images/logo.svg')"
+          :class="{'ml-12': $vuetify.breakpoint.mdAndUp}"
+        />
       </v-toolbar-title>
       <v-spacer />
+      <v-btn v-if="$vuetify.breakpoint.mdAndUp" text>
+        Login
+      </v-btn>
     </v-app-bar>
   </div>
 </template>
@@ -17,7 +20,6 @@
 export default {
   name: 'Navmenu',
   data: () => ({
-    drawer: false,
   }),
 };
 </script>
