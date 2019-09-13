@@ -17,7 +17,7 @@
       <v-flex xs12>
         <v-layout row wrap align-center justify-center>
           <v-flex xs4>
-            <v-time-picker v-model="timePicker" use-seconds />
+            <v-time-picker v-model="timePicker" use-seconds @change="changeTime" />
           </v-flex>
           <v-flex xs3>
             <v-text-field
@@ -59,12 +59,20 @@
         </v-layout>
       </v-flex>
     </v-layout>
+    <Break :open="askBreak" @close="askBreak = false" />
   </v-container>
 </template>
 
 <script>
+import Break from './Break';
+
 export default {
+  components: {
+    Break,
+  },
   data: () => ({
+    askBreak: false,
+    timeStarted: false,
     selectedTodo: 'To do 1',
     todos: [
       'To do 1',
@@ -79,16 +87,23 @@ export default {
       'To do 10',
       'To do 11',
     ],
-    timePicker: '00:25:19',
+    timePicker: '00:17:19',
     activityTime: '5h 25min',
-    focusTime: '25 min',
+    focusTime: '17 min',
     intervalTime: '5 min',
+    yogaTimer: 0,
+    timeToYoga: 5,
+    askedYoga: false,
   }),
   methods: {
     startTimer() {
-      setTimeout(this.incrementTimer, 1000);
+      if (!this.timeStarted) {
+        this.changeTime(this.timePicker);
+        setTimeout(this.incrementTimer, 1000);
+      }
     },
     incrementTimer() {
+      this.yogaTimer++;
       let tempPicker = this.timePicker.split(':');
       tempPicker[2]++;
       if (tempPicker[2] > 60) {
@@ -101,7 +116,14 @@ export default {
       }
       this.timePicker = tempPicker.join(':');
       setTimeout(this.incrementTimer, 1000);
-    }
-  }
+      if (!this.askedYoga && this.yogaTimer >= this.timeToYoga) {
+        this.askBreak = true;
+        this.askedYoga = true;
+      }
+    },
+    changeTime(e) {
+      this.focusTime = `${this.timePicker.split(':')[1]} min`;
+    },
+  },
 }
 </script>
