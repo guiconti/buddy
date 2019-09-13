@@ -1,5 +1,5 @@
 <template>
-  <v-container color="grey">
+  <v-container color="#FF4F75">
     <v-layout row wrap class="text-center">
       <v-flex xs12 class="mb-6">
         Faça seu cadastro e inicie o acesso grátis!

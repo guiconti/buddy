@@ -18,7 +18,7 @@
           xs12
           class="text-center"
         >
-          <Logo size="400"/>
+          <Logo :size="400"/>
         </v-flex>
         <v-flex
           md6
