@@ -46,7 +46,7 @@
                 </v-btn>
               </v-flex>
               <v-flex xs4>
-                <v-btn rounded color="success" @click="send">
+                <v-btn rounded color="success" @click="initiate">
                   Iniciar
                 </v-btn>
               </v-flex>
@@ -86,6 +86,10 @@ export default {
     },
     cancel() {
       this.$emit('close');
+      this.open = false;
+    },
+    initiate() {
+      this.$emit('initiate');
       this.open = false;
     },
   },

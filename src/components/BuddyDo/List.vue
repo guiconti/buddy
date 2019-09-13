@@ -106,7 +106,7 @@
         </v-card>
       </v-flex>
     </v-layout>
-    <Edit :open="edit" @close="edit = false" />
+    <Edit :open="edit" @close="edit = false" @initiate="startTimer()" />
   </v-container>
 </template>
 
@@ -124,5 +124,11 @@ export default {
     doings: ['Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa',],
     dones: ['Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa', 'Fazer tal coisa',]
   }),
+  methods: {
+    startTimer() {
+      this.edit = false;
+      this.$router.push({ path: '/timer' });
+    },
+  },
 }
 </script>

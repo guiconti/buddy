@@ -23,5 +23,10 @@ export default new Router({
       name: 'buddydo',
       component: () => import('./views/BuddyDo.vue'),
     },
+    {
+      path: '/timer',
+      name: 'timer',
+      component: () => import('./views/Timer.vue'),
+    },
   ],
 });

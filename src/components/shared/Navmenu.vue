@@ -11,13 +11,30 @@
       <v-btn
         v-if="$vuetify.breakpoint.mdAndUp && this.$route.path !== '/login' && !isLogged"
         text
-        class="black--text"
+        class="title black--text"
         @click="$router.push({ path: '/login' })"
       >
         Login
       </v-btn>
-      <v-btn text v-if="$vuetify.breakpoint.mdAndUp && isLogged">
+      <v-btn v-if="$vuetify.breakpoint.mdAndUp && isLogged" text class="title">
         Chat
+      </v-btn>
+      <v-btn v-if="$vuetify.breakpoint.mdAndUp && isLogged" text class="title">
+        To Do List
+      </v-btn>
+      <v-btn
+        v-if="$vuetify.breakpoint.mdAndUp && isLogged" 
+        text
+        class="title"
+        @click="$router.push({ path: '/timer' })"
+      >
+        Timer
+      </v-btn>
+      <v-btn v-if="$vuetify.breakpoint.mdAndUp && isLogged" text class="title">
+        Meus Sentimentos
+      </v-btn>
+      <v-btn v-if="$vuetify.breakpoint.mdAndUp && isLogged" text class="title">
+        Meus Cursos
       </v-btn>
     </v-app-bar>
   </div>
