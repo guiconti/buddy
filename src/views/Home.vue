@@ -2,7 +2,7 @@
   <div>
     <Banner 
       :height="650"
-      image="banner.svg"
+      image="banner.png"
       body="Ajudando você a trabalhar com mais qualidade!"
       font-color="black"
     />
