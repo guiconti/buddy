@@ -5,13 +5,13 @@
         Faça seu cadastro e inicie o acesso grátis!
       </v-flex>
       <v-flex xs12 class="mb-6">
-        <v-btn rounded x-large width="300" color="#FF4F75" class="white--text">
+        <v-btn rounded x-large width="300" color="primary" class="white--text">
           Cadastre-se
         </v-btn>
       </v-flex>
       <v-flex xs12 class="mb-12 body-2">
         Já é cadastrado?
-        <v-btn :ripple="false" text x-small height="16" color="#FF4F75" class="pa-0 text-center body-2">
+        <v-btn :ripple="false" text x-small height="16" color="primary" class="pa-0 text-center body-2">
           Fazer o login
         </v-btn>
       </v-flex>

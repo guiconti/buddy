@@ -1,10 +1,10 @@
 <template>
-  <v-container color="#FF4F75" fluid>
+  <v-container fluid>
     <v-layout row wrap class="text-center" align-center justify-center>
       <v-flex xs6 class="mb-6">
         <v-layout row wrap class="mt-12" style="margin-left: 248px">
           <v-flex v-for="(item, i) in items" :key="i" xs12 class="text-left mb-10">
-            <v-icon x-small color="#FF4F75" class="mr-2">
+            <v-icon x-small color="primary" class="mr-2">
               mdi-circle
             </v-icon>
             {{ item }}

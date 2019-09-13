@@ -29,7 +29,7 @@
           xs12
           class="mt-12 text-center"
         >
-          <v-btn rounded x-large width="350" height="60" color="#FF4F75" class="white--text headline">
+          <v-btn rounded x-large width="350" height="60" color="primary" class="white--text headline">
             Torne-se Premium
           </v-btn>
         </v-flex>
