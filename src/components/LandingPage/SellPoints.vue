@@ -12,7 +12,7 @@
         </v-layout>
       </v-flex>
       <v-flex xs6 class="mb-6 text-center">
-        <Happy :size="300" />
+        <Happy :size="200" />
       </v-flex>
     </v-layout>
   </v-container>

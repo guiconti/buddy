@@ -8,7 +8,7 @@
         />
       </v-toolbar-title>
       <v-spacer />
-      <v-btn v-if="$vuetify.breakpoint.mdAndUp" text>
+      <v-btn v-if="$vuetify.breakpoint.mdAndUp" text class="black--text">
         Login
       </v-btn>
     </v-app-bar>

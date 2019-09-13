@@ -9,7 +9,6 @@
     <div v-if="post">
       <Navmenu />
       <Content />
-      <Footer />
     </div>
   </v-app>
 </template>
@@ -17,13 +16,11 @@
 <script>
 import Navmenu from './components/shared/Navmenu';
 import Content from './components/shared/Content';
-import Footer from './components/shared/Footer';
 
 export default {
   name: 'App',
   components: {
     Content,
-    Footer,
     Navmenu,
   },
   data: () => ({
