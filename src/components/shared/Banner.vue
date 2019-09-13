@@ -1,11 +1,11 @@
 <template>
-  <v-card
+  <v-img
     tile
-    :class="{'default-elevation': $vuetify.breakpoint.mdAndUp}"
-    :img="require('../../assets/images/logo.svg')"
+    contain
+    :src="require('../../assets/images/' + image)"
     :height="$vuetify.breakpoint.mdAndUp ? height : 500"
   >
-    <v-container v-if="header !== ''" class="pl-12">
+    <v-container>
       <v-layout
         row
         wrap
@@ -16,34 +16,33 @@
       >
         <v-flex
           xs12
-          class="display-2 font-weight-bold"
-          style="font-family: 'Montserrat' !important;"
-          :class="fontColor + '--text'"
+          class="text-center"
         >
-          <v-icon v-if="icon" size="100" :color="fontColor">
-            {{ icon }}
-          </v-icon>
-          {{ header }}
+          <Logo size="400"/>
         </v-flex>
         <v-flex
+          md6
           xs12
-          class="mt-8"  
+          class="mt-8 text-center"
         >
-          <h3
-            class="headline font-weight-light"
-            :class="fontColor + '--text'"
-            :style="{'letter-spacing': $vuetify.breakpoint.mdAndUp ? '3px !important' : ''}"
+          <h2
+            class="display-2 font-weight-light"
           >
             {{ body }}
-          </h3>
+          </h2>
         </v-flex>
       </v-layout>
     </v-container>
-  </v-card>
+  </v-img>
 </template>
 
 <script>
+import Logo from '../Icons/Logo';
+
 export default {
+  components: {
+    Logo,
+  },
   props: {
     image: {
       type: String,
@@ -55,16 +54,6 @@ export default {
       required: false,
       default: 320,
     },
-    icon: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    header: {
-      type: String,
-      required: false,
-      default: '',
-    },
     body: {
       type: String,
       required: false,
@@ -73,15 +62,8 @@ export default {
     fontColor: {
       type: String,
       required: false,
-      default: 'white',
+      default: 'black',
     },
   },
 }
 </script>
-
-<style scoped>
-  .default-elevation {
-    -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
-    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
-  }
-</style>
