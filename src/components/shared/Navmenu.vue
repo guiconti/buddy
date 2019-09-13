@@ -8,19 +8,31 @@
         />
       </v-toolbar-title>
       <v-spacer />
-      <v-btn v-if="$vuetify.breakpoint.mdAndUp && this.$route.path !== '/login'" text class="black--text" @click="$router.push({ path: '/login' })">
+      <v-btn
+        v-if="$vuetify.breakpoint.mdAndUp && this.$route.path !== '/login'"
+        text
+        class="black--text"
+        @click="$router.push({ path: '/login' })"
+      >
         Login
+      </v-btn>
+      <v-btn text v-if="$vuetify.breakpoint.mdAndUp && isLogged">
+        Chat
       </v-btn>
     </v-app-bar>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'Navmenu',
-  data: () => ({
-  }),
+  computed: {
+    ...mapState('auth', {
+      isLogged: state => state.isLogged,
+    }),
+  },
 };
 </script>
 

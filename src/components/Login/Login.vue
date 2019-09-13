@@ -35,7 +35,15 @@
             @keyup.enter="submit"
             @click:append="showPassword = !showPassword"
           />
-          <v-btn color="primary" rounded x-large width="200" class="text-center">
+          <v-btn
+            color="primary"
+            rounded
+            x-large
+            width="200"
+            class="text-center"
+            :loading="loading"
+            @click="submit"
+          >
             PLAY
           </v-btn>
         </v-form>
@@ -51,6 +59,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import Logo from '../Icons/Logo';
 export default {
   components: {
@@ -73,6 +83,26 @@ export default {
         v => (v && v.length >= 6) || 'Password must have at least 6 characters',
       ],
     };
-  }
+  },
+  methods: {
+    ...mapActions('auth', ['signIn']),
+    submit() {
+      if (this.$refs.form.validate()) {
+        this.loading = true;
+        this.error = false;
+        const { email, password } = this;
+        const body = { email, password };
+        this.signIn(body)
+          .then(() => {
+            this.$router.push({ path: '/buddydo' });
+            this.loading = false;
+          })
+          .catch(err => {
+            this.error = err;
+            this.loading = false;
+          });
+        }
+    },
+  },
 }
 </script>

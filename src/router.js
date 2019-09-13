@@ -18,5 +18,10 @@ export default new Router({
       name: 'login',
       component: () => import('./views/Login.vue'),
     },
+    {
+      path: '/buddydo',
+      name: 'buddydo',
+      component: () => import('./views/BuddyDo.vue'),
+    },
   ],
 });
