@@ -9,7 +9,7 @@
       </v-toolbar-title>
       <v-spacer />
       <v-btn
-        v-if="$vuetify.breakpoint.mdAndUp && this.$route.path !== '/login'"
+        v-if="$vuetify.breakpoint.mdAndUp && this.$route.path !== '/login' && !isLogged"
         text
         class="black--text"
         @click="$router.push({ path: '/login' })"

@@ -1,18 +1,18 @@
 <template>
   <v-container class="mt-12">
     <v-layout row wrap align-center justify-center>
-      <v-flex xs4>
+      <v-flex xs4 :style="{'margin-left': $vuetify.breakpoint.xlOnly ? '148px': '12px'}">
         <h2 class="display-2">
           BuddyDo
         </h2>
-        <v-btn class="title pl-0" text large @click="create = true">
+        <v-btn class="title pl-0 mt-2" text large @click="create = true">
           <v-icon large color="grey" class="mr-2">mdi-plus-circle</v-icon> Adicionar To Do
         </v-btn>
       </v-flex>
       <v-spacer />
-      <v-flex xs6>
+      <v-flex xs6 :style="{'margin-right': $vuetify.breakpoint.xlOnly ? '168px': '12px'}">
         <v-layout row wrap class="grey-background">
-          <v-flex xs4 v-for="(status, i) in statuses" :key="i">
+          <v-flex xs4 xl3 v-for="(status, i) in statuses" :key="i">
             <v-icon :color="status.color">mdi-circle</v-icon>{{ status.name }}
           </v-flex>
         </v-layout>
@@ -39,7 +39,7 @@ export default {
         },
         {
           name: 'Doing',
-          color: 'yellow',
+          color: 'amber',
         },
         {
           name: 'Done',
